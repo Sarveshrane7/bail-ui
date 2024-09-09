@@ -68,3 +68,30 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+use bail;
+
+show tables;
+
+create table law (law_id numeric, law_name varchar(500), primary key (law_id));
+commit;
+
+select * from law;
+
+
+create table section (section_id numeric, section_name varchar(500), 
+punishment varchar(500), primary key (section_id), law_id numeric , FOREIGN KEY (law_id) REFERENCES law(law_id));
+
+select * from section;
+
+
+
+insert into law values (1, 'IPC');
+commit;
+
+select * from section;
+
+insert into section values (1, '326', '5 years', 1);
+
+create table accused_info (accused_id numeric, accused_name varchar(100), fir_num varchar(100)
+, aadhar_card numeric(12), primary key (accused_id));
